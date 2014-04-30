@@ -20,10 +20,23 @@ Visualize the inverse transform simultaneously.
       src: item.src()
 
     item.transform.observe (t) ->
-      console.log t.inverse()
+      inverseItem.transform t.inverse()
+
+    fmt = ({a, b, c, d, tx, ty}) ->
+      """
+        #{a} #{b} #{tx}
+        #{c} #{d} #{ty}
+        0.00 0.00 1.00
+      """
 
     demo =
       items: Observable [item]
+      transform: Observable ->
+        fmt item.transform().toFixed(2)
+
+      inverseTransform: Observable ->
+        fmt item.transform().inverse().toFixed(2)
+      ghost: inverseItem
 
     template = require "./templates/editor"
     document.body.appendChild template demo

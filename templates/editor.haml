@@ -1,3 +1,7 @@
 .items
   - each @items, (item) ->
     %img(src=item.src style=item.css)
+  .ghost
+    %img(src=@ghost.src style=@ghost.css)
+%pre.transform= @transform
+%pre.inverse= @inverseTransform

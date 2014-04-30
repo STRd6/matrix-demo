@@ -42,3 +42,11 @@ Convert matrix to CSS string.
         {x, y} = x
 
       Matrix(1, 0, 0, 1, x, y)
+
+    Matrix::toFixed = (n) ->
+      a: @a.toFixed(n)
+      b: @b.toFixed(n)
+      c: @c.toFixed(n)
+      d: @d.toFixed(n)
+      tx: @tx.toFixed(n)
+      ty: @ty.toFixed(n)
