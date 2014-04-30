@@ -1,0 +1,53 @@
+html
+  height: 100%
+
+body
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif
+  height: 100%
+  margin: 0
+  overflow: hidden
+  position: relative
+
+.items
+  position: absolute
+  left: 50%
+  top: 50%
+  height: 100%
+  width: 100%
+
+img
+  position: absolute
+
+.point
+  position: absolute
+  width: 5px
+  height: 5px
+  background-color: red
+  z-index: 9000
+  //display: none
+
+.help
+  color: white
+  height: 100%
+  background-color: rgba(0, 0, 0, 0.875)
+  padding: 1em
+  position: absolute
+  top: 100%
+  width: 100%
+  z-index: 9000
+
+  transition-duration: 0.3s
+
+  &.up
+    top: 0
+
+  .key
+    display: inline-block
+    font-weight: bold
+    padding-right: 20px
+    text-align: right
+    vertical-align: top
+    width: 160px
+
+  .command
+    display: inline-block

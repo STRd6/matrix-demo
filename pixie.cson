@@ -1,0 +1,11 @@
+version: "0.1.0"
+remoteDependencies: [
+  "https://code.jquery.com/jquery-1.11.0.min.js"
+]
+dependencies:
+  composition: "distri/compositions:v0.1.1"
+  matrix: "distri/matrix:v0.3.1"
+  observable: "distri/observable:v0.1.1"
+  point: "distri/point:v0.2.0"
+  size: "distri/size:v0.1.0"
+  util: "distri/util:v0.1.0"
