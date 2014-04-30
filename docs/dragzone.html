@@ -53,7 +53,7 @@ module.<span class="function"><span class="title">exports</span></span> = ($elem
   scaling = <span class="literal">null</span>
   rotating = <span class="literal">null</span>
 
-  $element.bind
+  $(<span class="string">"body"</span>).bind
     <span class="string">"touchstart mousedown"</span>: (event) -&gt;
       $target = $(target = event.target)
       <span class="keyword">if</span> $target.<span class="keyword">is</span> <span class="string">"img"</span>
@@ -69,13 +69,6 @@ module.<span class="function"><span class="title">exports</span></span> = ($elem
         initialTransform = activeItem.transform()
         anchor = activeItem.anchor()
         center = offset.add(activeItem.center()).subtract(anchor)
-
-        lastCommand = editor.Command.Transform
-          index: index
-          transform: initialTransform
-          previous: initialTransform
-
-        editor.execute lastCommand
 
         $(debugPoint).css
           top: center.y
@@ -112,7 +105,7 @@ module.<span class="function"><span class="title">exports</span></span> = ($elem
         deltaTransform = Matrix.translation(p.subtract(startPosition))
 
       <span class="keyword">if</span> deltaTransform
-        lastCommand.set deltaTransform.concat initialTransform
+        activeItem.transform deltaTransform.concat initialTransform
 
     <span class="string">"touchend mouseup"</span>: (event) -&gt;
       active = <span class="literal">false</span>

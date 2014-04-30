@@ -41,18 +41,27 @@ require <span class="string">"./duct_tape"</span>
 Observable = require <span class="string">"observable"</span>
 {applyStylesheet} = require <span class="string">"util"</span>
 
+Item = require <span class="string">"./item"</span>
+
 applyStylesheet require <span class="string">"./style"</span>
 
+item = Item
+  src: <span class="string">"http://trinket.s3.amazonaws.com/18894/data/c0f15d35bccf20c61e4347dea3c62b785e7346e6"</span>
+
+inverseItem = Item
+  src: item.src()
+
+item.transform.observe (t) -&gt;
+  console.log t.inverse()
+
 demo =
-  items: Observable []
+  items: Observable [item]
 
 template = require <span class="string">"./templates/editor"</span>
 document.body.appendChild template demo
 
 Dragzone = require <span class="string">"./dragzone"</span>
 Dragzone($(<span class="string">".items"</span>), demo)
-
-Item = require <span class="string">"./item"</span>
 
 global.<span class="function"><span class="title">appData</span></span> = -&gt;
   JSON.stringify editor.items().map (item) -&gt;
