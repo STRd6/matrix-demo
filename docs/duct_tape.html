@@ -83,7 +83,15 @@ Matrix.translation = Matrix.<span class="function"><span class="title">translate
   <span class="keyword">if</span> <span class="keyword">typeof</span> x <span class="keyword">is</span> <span class="string">"object"</span>
     {x, y} = x
 
-  Matrix(<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, x, y)</code></pre>
+  Matrix(<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, x, y)
+
+Matrix::<span class="function"><span class="title">toFixed</span></span> = (n) -&gt;
+  a: <span class="property">@a</span>.toFixed(n)
+  b: <span class="property">@b</span>.toFixed(n)
+  c: <span class="property">@c</span>.toFixed(n)
+  d: <span class="property">@d</span>.toFixed(n)
+  tx: <span class="property">@tx</span>.toFixed(n)
+  ty: <span class="property">@ty</span>.toFixed(n)</code></pre>
 </div>
         </li>
         

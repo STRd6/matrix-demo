@@ -52,10 +52,23 @@ inverseItem = Item
   src: item.src()
 
 item.transform.observe (t) -&gt;
-  console.log t.inverse()
+  inverseItem.transform t.inverse()
+
+<span class="function"><span class="title">fmt</span></span> = ({a, b, c, d, tx, ty}) -&gt;
+  <span class="string">"""
+    <span class="subst">#{a}</span> <span class="subst">#{b}</span> <span class="subst">#{tx}</span>
+    <span class="subst">#{c}</span> <span class="subst">#{d}</span> <span class="subst">#{ty}</span>
+    0.00 0.00 1.00
+  """</span>
 
 demo =
   items: Observable [item]
+  transform: Observable -&gt;
+    fmt item.transform().toFixed(<span class="number">2</span>)
+
+  inverseTransform: Observable -&gt;
+    fmt item.transform().inverse().toFixed(<span class="number">2</span>)
+  ghost: inverseItem
 
 template = require <span class="string">"./templates/editor"</span>
 document.body.appendChild template demo
